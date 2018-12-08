@@ -8,7 +8,9 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+use think\Route;
+Route::rule('news/:id', 'api/news/read');
+Route::rule('weather/:city', 'api/weather/read/');
 return [
     '__pattern__' => [
         'name' => '\w+',
