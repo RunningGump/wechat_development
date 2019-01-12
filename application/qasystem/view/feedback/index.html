@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>问题反馈</title> 
+  
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 引入 jQuery Mobile 样式 -->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- 引入 jQuery 库 -->
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- 引入 jQuery Mobile 库 -->
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+ 
+<body class="gray-bg">
+  
+<div data-role="page">
+  <div data-role="header">
+    <h1>欢迎，{$name}同学</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="{:url('http://154.8.217.214/qasystem/test/index')}" data-icon="home" >问题反馈</a></li>
+        <li><a href="#" data-icon="search">反馈查询</a></li>
+        <li><a href="#" data-icon="arrow-r">建议</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   
+  		<!-- start-->
+        <div data-role="main" class="ui-content">
+            <div data-role="collapsible">
+              <h1>洗手间水龙头坏了 </h1>
+			  <table border="1" width="200px" id="t1" frame=void  rules=none>
+              <tr class="CaseRow">
+                  <td>老师：哪个宿舍</td>
+              </tr>
+              <tr class="CaseRow">
+                  <td>苏东航：5330舍</td>
+              </tr>
+                 <tr class="CaseRow">
+                 <td>老师：明天下午宿舍有人</td>
+              </tr>
+                 <tr class="CaseRow">
+                 <td>苏东航：有</td>
+              </tr>
+              </table>
+
+              <textarea  name="addinfo" id="info"></textarea>
+              <input type="submit" data-inline="true" value="提交" id="btn1">
+              
+            </div>
+            <div data-role="collapsible">
+              <h1>食堂番茄炒鸡蛋，鸡蛋太少</h1>
+              <p>老师：以后会改进</p>
+              <p>苏东航：谢谢</p>
+            </div>
+        </div>
+		<!-- end-->
+        
+    
+      	
+    
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h1>北京大学软件与微电子学院</h1>
+  </div>
+</div> 
+
+
+
+
+<script src="/static/js/jquery.min.js?v=2.1.4"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+        
+		$("#btn1").click(function(){
+            var $textArea = $("#info").val();
+			var tr = "<tr class='CaseRow'><td>苏东航："+$textArea+"</td></tr>";
+			$("table").append(tr);//向table中追加tr
+            $("#info").val("");
+		});
+		$("#btn2").click(function(){
+			var num=$("#t1 tr").filter(".CaseRow").size();//获得表格行数
+			alert(num);
+			if(num==1){
+				alert("留一行，好不好");
+				return;
+			}
+			var t=$("input:checked").parent().parent("tr").remove();//移除选中的行
+		});
+	});
+</script>
+</body>
+</html>

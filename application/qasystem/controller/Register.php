@@ -1,5 +1,5 @@
 <?php
-namespace app\index\controller;
+namespace app\qasystem\controller;
  
 use think\Controller;
 

