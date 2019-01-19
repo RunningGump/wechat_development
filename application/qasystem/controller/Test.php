@@ -13,38 +13,40 @@ class Test extends Controller
         $this->assign($array);
     	return $this->fetch();
     }
-        // 处理登录逻辑
-    public function doLogin()
+        // 用户提交问题
+    public function putQuestion()
     {
     	$param = input('post.');
-    	if(empty($param['user_name'])){
+    	if(empty($param['projectType'])){
     		
-    		$this->error('用户名不能为空');
+    		$this->error('分类不能为空');
     	}
     	
-    	if(empty($param['user_pwd'])){
+    	if(empty($param['projectId'])){
     		
-    		$this->error('密码不能为空');
+    		$this->error('项目不能为空');
+    	}
+      
+      	if(empty($param['question'])){
+          
+        	$this->error('问题描述不能为空');
+          
     	}
     	
-    	// 验证用户名
-    	$has = db('students')->where('user_name', $param['user_name'])->find();
-    	if(empty($has)){
-    		
-    		$this->error('用户名密码错误');
-    	}
-    	
-    	// 验证密码
-    	if($has['user_pwd'] != md5($param['user_pwd'])){
-    		
-    		$this->error('用户名密码错误');
-    	}
+		$data=[
+            'categoryFath'=>$param['projectType'],
+            'categorySon'=>$param['projectId'],
+            'content'=>$param['question'],
+            'student_id'=>1
+        ];
+      	db("questions")->insert($data);
+      	
     	
     	// 记录用户登录信息
     	cookie('user_id', $has['id'], 3600);  // 一个小时有效期
     	cookie('user_name', $has['user_name'], 3600);
     	
-    	$this->redirect(url('index/index'));
+    	$this->redirect(url('feedback/index'));
     }
   // 退出登陆
   public function loginOut()

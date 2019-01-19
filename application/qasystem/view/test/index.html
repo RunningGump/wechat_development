@@ -37,7 +37,7 @@
   	<!-- start-->
       <div id="page-wrapper">
         <div id="page-inner">
-            <form class="form-horizontal" id="navigation">
+            <form class="form-horizontal" id="navigation" role="form" action="{:url('test/putQuestion')}" method="post">
                 <div class="form-group">
                     <label for="sourceModule" class="col-sm-2 control-label">分类选择:</label>
                     <div class="col-sm-10">
@@ -63,6 +63,7 @@
                       <textarea class="form-control" rows="8"></textarea> 
                   </div>
                 </div> 
+              	<input type="submit" data-inline="true" value="提交">
              </form>
           </div>
 		</div>
